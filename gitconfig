@@ -1,0 +1,7 @@
+[user]
+	name = Matthew Cowie
+	email = matthew@cowie.me
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = simple
