@@ -1,14 +1,8 @@
 execute pathogen#infect()
-syntax on
-filetype plugin indent on
-
 let mapleader = "\<Space>"
 
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
+syntax on
+filetype plugin indent on
 set nocompatible
 set noshowmode
 set smartindent
@@ -17,7 +11,19 @@ set number
 set tabstop=2 shiftwidth=2
 set backspace=2
 set scrolloff=4
-set timeoutlen=50
+set timeoutlen=120
+
+nmap ; :
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>f :Explore<CR>
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+let g:rspec_command = "Dispatch bin/rspec {spec}"
+
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'murmur'
 set laststatus=2
@@ -31,21 +37,19 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_scss_sass_quiet_messages = {
+    \ "regex": 'File to import not found or unreadable' }
 
+let g:netrw_liststyle=3
+let g:netrw_list_hide= '.*\.swp$'
+
+" Kill trailing whitespace on write
 set wrap
 set linebreak
 " note trailing space at end of next line
 set showbreak=>\ \ \
 autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    redraw!
-    return
-  endtry
-  redraw!
-    exec a:vim_command . " " . selection
-endfunction
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+" use // to search selection
+vnoremap // y/<C-R>"<CR>"
+
