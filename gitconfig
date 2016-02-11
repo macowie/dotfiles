@@ -5,3 +5,9 @@
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
+[url "git@code.neotericdesign.com:"]
+  insteadOf = neo:
+[url "git@code.neotericdesign.com:clients/"]
+  insteadOf = cl:
+[url "git@github.com"]
+  insteadof = gh
