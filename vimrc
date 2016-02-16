@@ -12,6 +12,11 @@ set tabstop=2 shiftwidth=2
 set backspace=2
 set scrolloff=4
 set timeoutlen=120
+set mouse=a
+set ttymouse=xterm2
+if has('mouse_sgr')
+  set ttymouse=sgr
+endif
 
 nmap ; :
 nnoremap <Leader>w :w<CR>
