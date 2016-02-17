@@ -44,6 +44,13 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_scss_sass_quiet_messages = {
     \ "regex": 'File to import not found or unreadable' }
+let g:syntastic_html_tidy_ignore_errors = [
+    \  'plain text isn''t allowed in <head> elements',
+    \  '<base> escaping malformed URI reference',
+    \  'discarding unexpected <body>',
+    \  '<script> escaping malformed URI reference',
+    \  '</head> isn''t allowed in <body> elements'
+    \ ]
 
 let g:netrw_liststyle=3
 let g:netrw_list_hide= '.*\.swp$'
