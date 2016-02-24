@@ -8,6 +8,8 @@ set noshowmode
 set smartindent
 set expandtab
 set number
+set splitbelow
+set splitright
 set tabstop=2 shiftwidth=2
 set backspace=2
 set scrolloff=4
