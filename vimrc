@@ -13,7 +13,8 @@ set splitright
 set tabstop=2 shiftwidth=2
 set backspace=2
 set scrolloff=4
-set timeoutlen=120
+set tw=80
+set timeoutlen=90
 set mouse=a
 set ttymouse=xterm2
 if has('mouse_sgr')
