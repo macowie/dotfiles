@@ -3,6 +3,11 @@ let mapleader = "\<Space>"
 
 syntax on
 filetype plugin indent on
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+  set guifont=Hack:h15
+endif
 set nocompatible
 set noshowmode
 set smartindent
