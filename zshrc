@@ -87,3 +87,4 @@ source ~/.credentials
 export USER=`whoami`
 DEFAULT_USER=matthew
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export EDITOR=/usr/local/bin/vim

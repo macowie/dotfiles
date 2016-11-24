@@ -11,3 +11,10 @@
   insteadOf = cl:
 [url "git@github.com"]
   insteadof = gh
+[alias]
+  st = status
+  cm = commit -m
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p

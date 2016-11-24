@@ -22,6 +22,7 @@ set tw=80
 set timeoutlen=90
 set mouse=a
 set ttymouse=xterm2
+set shell=/bin/bash
 if has('mouse_sgr')
   set ttymouse=sgr
 endif
