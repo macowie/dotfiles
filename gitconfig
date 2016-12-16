@@ -5,6 +5,8 @@
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
+[pull]
+	rebase = true
 [url "git@code.neotericdesign.com:"]
   insteadOf = neo:
 [url "git@code.neotericdesign.com:clients/"]
@@ -18,3 +20,12 @@
   co = checkout
   df = diff
   lg = log -p
+  branches = branch -a
+  tags = tag
+  stashes = stash list
+  unstage = reset -q HEAD --
+  discard = checkout --
+  uncommit = reset --mixed HEAD~
+  amend = commit --amend
+  nevermind = !git reset --hard HEAD && git clean -d -f
+  precommit = diff --cached --diff-algorithm=minimal -w
