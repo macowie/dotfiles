@@ -1,4 +1,7 @@
+#!/bin/sh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+source ~/.credentials
+export EDITOR=vim
+export DEFAULT_USER=matthew
+export USER=`whoami`
+alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"

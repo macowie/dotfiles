@@ -81,10 +81,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
-source ~/.credentials
 
-export USER=`whoami`
-DEFAULT_USER=matthew
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export EDITOR=/usr/local/bin/vim
+source ~/.profile
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
