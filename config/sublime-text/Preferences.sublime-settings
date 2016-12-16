@@ -1,0 +1,47 @@
+{
+  "color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+  "dpi_scale": 1.25,
+  "folder_exclude_patterns":
+  [
+    ".svn",
+    ".git",
+    ".hg",
+    "CVS",
+    ".*-cache",
+    "tmp",
+    ".bundle"
+  ],
+  "font_face": "Hack",
+  "font_options":
+  [
+    "subpixel_antialias"
+  ],
+  "font_size": 12.0,
+  "highlight_line": true,
+  "highlight_modified_tabs": true,
+  "hot_exit": false,
+  "ignored_packages":
+  [
+  ],
+  "indent_guide_options":
+  [
+    "draw_normal",
+    "draw_active"
+  ],
+  "line_padding_bottom": 3,
+  "line_padding_top": 3,
+  "material_theme_accent_lime": true,
+  "material_theme_small_tab": true,
+  "remember_open_files": false,
+  "rulers":
+  [
+    80
+  ],
+  "save_on_focus_lost": true,
+  "tab_size": 2,
+  "theme": "Afterglow-green.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true,
+  "use_simple_full_screen": false,
+  "wrap_width": 80
+}
