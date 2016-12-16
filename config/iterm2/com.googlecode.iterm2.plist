@@ -785,9 +785,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-1651 -41 606 456 -1920 -180 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>656 1295 796 473 0 0 3840 2138 </string>
+	<string>656 1274 796 473 0 0 3840 2138 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>244 54 970 724 0 0 3840 2138 </string>
+	<string>2118 332 970 724 0 0 3840 2138 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-3341 -301 730 573 -3840 -1360 3840 2137 </string>
 	<key>NeverWarnAboutShortLivedSessions_C5EBD7C2-729C-4ED0-9B16-FD2317987DCB</key>
@@ -1006,25 +1006,29 @@
 			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.79186719655990601</real>
+				<real>0.018179763108491898</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.6861264705657959</real>
+				<real>0.83661913871765137</real>
 				<key>Red Component</key>
-				<real>0.086931481957435608</real>
+				<real>0.20075726509094238</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.25</real>
+				<real>0.074737548828125</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.99934029579162598</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.91000000000000003</real>
+				<real>0.91002440452575684</real>
 				<key>Red Component</key>
-				<real>0.65000000000000002</real>
+				<real>0.650002121925354</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
