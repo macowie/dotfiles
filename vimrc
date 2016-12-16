@@ -20,6 +20,7 @@ set backspace=2
 set scrolloff=4
 set tw=80
 set timeoutlen=90
+set clipboard=unnamed
 set mouse=a
 set ttymouse=xterm2
 set shell=/bin/bash
