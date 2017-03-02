@@ -12,10 +12,13 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-tbone'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-liquid'
+Plugin 'tpope/vim-dispatch'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 " ====================================================
 
@@ -55,11 +58,13 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+set laststatus=2
+
 let g:rspec_command = "Dispatch bin/rspec {spec}"
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'murmur'
-set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
 
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_rails = 1
