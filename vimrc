@@ -1,6 +1,25 @@
-execute pathogen#infect()
-let mapleader = "\<Space>"
+" Vundle ============================================
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-tbone'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-liquid'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ConradIrwin/vim-bracketed-paste'
+call vundle#end()
+" ====================================================
 
+let mapleader = "\<Space>"
 syntax on
 filetype plugin indent on
 if has('gui_running')
@@ -8,7 +27,6 @@ if has('gui_running')
   colorscheme solarized
   set guifont=Hack:h15
 endif
-set nocompatible
 set noshowmode
 set smartindent
 set expandtab
