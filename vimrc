@@ -92,7 +92,7 @@ set wrap
 set linebreak
 " note trailing space at end of next line
 set showbreak=>\ \ \
-autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,rb,js,coffee,scss,css autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " use // to search selection
 vnoremap // y/<C-R>"<CR>"
