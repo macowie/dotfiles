@@ -66,10 +66,13 @@ let g:rubycomplete_rails = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:syntastic_auto_jump = 2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_ruby_checkers = ["rubocop"]
+let g:syntastic_loc_list_height = 4
 let g:syntastic_scss_sass_quiet_messages = {
     \ "regex": 'File to import not found or unreadable' }
 let g:syntastic_html_tidy_ignore_errors = [
