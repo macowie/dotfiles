@@ -87,9 +87,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Kill trailing whitespace on write
-set wrap
-set linebreak
-set showbreak=>\ \ \
-autocmd FileType c,cpp,java,php,rb,js,coffee,scss,css autocmd BufWritePre <buffer> %s/\s\+$//e
-
-
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
