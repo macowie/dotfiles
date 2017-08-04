@@ -87,6 +87,9 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " ack.vim -- Use the_silver_searcher instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" Use .gitignore to filter CtrlP entries
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 " Kill trailing whitespace on write
 fun! <SID>StripTrailingWhitespaces()
   let l = line(".")
