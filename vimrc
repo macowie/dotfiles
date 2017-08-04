@@ -20,6 +20,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'eiginn/netrw'
 call vundle#end()
 " ====================================================
 
