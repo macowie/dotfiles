@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
@@ -13,7 +14,7 @@ Plugin 'tpope/vim-tbone'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-liquid'
 Plugin 'tpope/vim-dispatch'
-Plugin 'mileszs/ack.vim'
+Plugin 'jremmen/vim-ripgrep'
 Plugin 'w0rp/ale'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -83,9 +84,6 @@ let g:airline#extensions#tabline#enabled = 1
 " ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" ack.vim -- Use the_silver_searcher instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Use .gitignore to filter CtrlP entries
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
