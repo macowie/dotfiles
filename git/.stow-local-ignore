@@ -1,0 +1,19 @@
+# Default Stow ignore list, with .gitignore omitted so it gets Stowed
+
+.+,v
+
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
