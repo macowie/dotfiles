@@ -1,0 +1,11 @@
+// SublimeLinter Settings - User
+{
+ "linters": {
+   "rubocop": {
+      "env": {"NO_BUNDLE_EXEC":"1"}
+    },
+    "reek": {
+      "env": {"NO_BUNDLE_EXEC":"1"}
+    }
+  }
+}
