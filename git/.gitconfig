@@ -7,11 +7,11 @@
 	default = simple
 [pull]
 	rebase = true
-[url "git@code.neotericdesign.com:"]
-  insteadOf = neo:
-[url "git@code.neotericdesign.com:clients/"]
+[url "https://code.neotericdesign.com"]
+  insteadOf = neo
+[url "https://code.neotericdesign.com/clients"]
   insteadOf = cl:
-[url "git@github.com"]
+[url "https://github.com"]
   insteadof = gh
 [alias]
   st = status
