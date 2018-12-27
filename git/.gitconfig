@@ -29,9 +29,6 @@
   amend = commit --amend
   nevermind = !git reset --hard HEAD && git clean -d -f
   precommit = diff --cached --diff-algorithm=minimal -w
-
-# icdiff
-[alias]
   showtool = "!f() { git difftool $1^ $1; }; f"
   added = difftool --cached
 [diff]
@@ -42,3 +39,5 @@
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [pager]
   difftool = true
+[credential]
+	helper = libsecret
