@@ -1,5 +1,5 @@
 source ~/.credentials
-export EDITOR=vim
+export EDITOR=nvim
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
