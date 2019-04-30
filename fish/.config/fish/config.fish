@@ -1,7 +1,13 @@
-source ~/.credentials
+source ~/.asdf/asdf.fish
+source ~/.profile
+
+
+# Fish Vars ###########################################################
 
 set -g theme_nerd_fonts yes
-set -g nvim $EDITOR
+
+
+# Aliases #############################################################
 
 switch (uname)
   case Linux
@@ -12,10 +18,9 @@ end
 
 alias gst="git status"
 
-set -xg KERL_BUILD_DOCS yes
 
+# Fundle ##############################################################
 
-# Fundle
 if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 fundle plugin "simnalamburt/shellder"
 fundle plugin "simnalamburt/fish-sensible"
