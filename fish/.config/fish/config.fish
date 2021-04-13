@@ -25,3 +25,6 @@ if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 fundle plugin "simnalamburt/shellder"
 fundle plugin "simnalamburt/fish-sensible"
 fundle init
+source ~/.asdf/asdf.fish
+
+set -xg KERL_BUILD_DOCS yes
