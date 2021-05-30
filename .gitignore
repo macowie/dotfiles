@@ -2,3 +2,4 @@ fishd.*
 fish/.config/fish/fundle
 fish/.config/fish/functions
 fish/.config/fish/fish_variables
+fish/.config/fish/completions
