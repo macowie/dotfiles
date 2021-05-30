@@ -22,15 +22,16 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'eiginn/netrw'
+Plugin 'sickill/vim-monokai'
 call vundle#end()
 " ====================================================
 
 syntax on
+colorscheme monokai
 filetype plugin indent on
 
 if has('gui_running')
   set background=dark
-  colorscheme solarized
   set guifont=Hack:h15
 endif
 if has('mouse_sgr')
@@ -51,7 +52,6 @@ set tw=80
 set timeoutlen=90
 set clipboard=unnamed
 set mouse=a
-set ttymouse=xterm2
 set shell=/bin/bash
 
 " Quickcommand
