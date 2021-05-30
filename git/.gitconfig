@@ -3,16 +3,15 @@
 	email = matthew@cowie.me
 [core]
 	excludesfile = ~/.gitignore
+	editor = nvim
 [push]
 	default = simple
 [pull]
 	rebase = true
-[url "https://code.neotericdesign.com"]
-  insteadOf = neo
-[url "https://code.neotericdesign.com/clients"]
-  insteadOf = cl:
 [url "https://github.com"]
   insteadof = gh
+[url "https://gitlab.com"]
+  insteadof = gl
 [alias]
   st = status
   cm = commit -m
