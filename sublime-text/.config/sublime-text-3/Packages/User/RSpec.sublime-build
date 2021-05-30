@@ -1,0 +1,18 @@
+{
+  "shell_cmd": "bin/rspec",
+  "config_name": "Bash",
+  "file_regex": "# ([A-Za-z:0-9_./ ]+rb):([0-9]+)",
+  "working_dir": "$folder",
+  "selector": "source.ruby.rspec",
+  "target": "terminus_exec",
+  "cancel": "terminus_cancel_build",
+  "env": {
+    "RAILS_SYSTEM_TESTING_SCREENSHOT": "inline"
+  },
+  "variants": [
+    {
+      "name": "(Current File)",
+      "cmd": ["bin/rspec", "-I ${file_path}", "$file"],
+    }
+  ]
+}

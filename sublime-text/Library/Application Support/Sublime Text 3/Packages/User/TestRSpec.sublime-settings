@@ -1,8 +1,0 @@
-{
-  "rspec_add_to_path": "$HOME/.rbenv/shims",
-  // rspec runner paths
-  "paths_bin_rspec": "./bin/rspec",
-  "paths_rbenv": "~/.rbenv/bin/rbenv",
-  "check_for_rbenv": true,
-  "check_for_rvm": false
-}
