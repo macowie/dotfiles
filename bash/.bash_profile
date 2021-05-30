@@ -16,3 +16,6 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 source $HOME/.asdf/asdf.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export MAKE="make --jobs $(nproc --ignore 2)"
