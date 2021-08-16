@@ -50,6 +50,5 @@ fundle init
 source ~/.asdf/asdf.fish
 
 set -xg KERL_BUILD_DOCS yes
-set -xg MAKE "make --jobs 8"
 
 source ~/.asdf/asdf.fish
