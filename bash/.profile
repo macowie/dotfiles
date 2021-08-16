@@ -1,7 +1,7 @@
 source ~/.credentials
 
 export KERL_BUILD_DOCS=yes
-export EDITOR=vi
+export EDITOR=nvim
 
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 export ENABLE_VKBASALT=1

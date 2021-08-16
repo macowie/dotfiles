@@ -1,7 +1,7 @@
 " Vundle ============================================
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
