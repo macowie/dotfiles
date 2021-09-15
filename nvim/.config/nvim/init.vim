@@ -14,15 +14,15 @@ Plugin 'tpope/vim-tbone'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-liquid'
 Plugin 'tpope/vim-dispatch'
+Plugin 'beauwilliams/focus.nvim'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'eiginn/netrw'
+Plugin 'preservim/nerdtree'
 Plugin 'sickill/vim-monokai'
 Plugin 'folke/tokyonight.nvim'
 call vundle#end()
@@ -41,6 +41,8 @@ if has('mouse_sgr')
 endif
 
 set noshowmode
+set showcmd
+set timeoutlen=1200
 set smartindent
 set expandtab
 set number
@@ -51,23 +53,21 @@ set backspace=2
 set scrolloff=4
 set laststatus=2
 set tw=80
-set timeoutlen=90
 set clipboard=unnamed
 set mouse=a
 
 " Quickcommand
 nmap ; :
-let mapleader = "\<Space>"
 " Quicksave
 nnoremap <Leader>w :w<CR>
+
 " Quicksearch selection
 vnoremap // y/<C-R>"<CR>"
+let mapleader = " "
 
-" netrw
-nnoremap <Leader>f :Explore<CR>
-let g:netrw_liststyle=3
-let g:netrw_list_hide= '.*\.swp$'
+nnoremap <Leader>f :NERDTree<CR>
 
+""""""""""""""""""""""
 " Rails/RSpec
 let g:rspec_command = "Dispatch bin/rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -86,7 +86,7 @@ let g:airline#extensions#tabline#enabled = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-nmap <C-f> :call :FZF
+nmap <C-f> :FZF
 
 " Use .gitignore to filter CtrlP entries
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
