@@ -22,14 +22,21 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'preservim/nerdtree'
+Plugin 'kyazdani42/nvim-web-devicons' " for file icons
+Plugin 'kyazdani42/nvim-tree.lua'
 Plugin 'sickill/vim-monokai'
+Plugin 'catppuccin/nvim'
 Plugin 'folke/tokyonight.nvim'
 call vundle#end()
 " ====================================================
+lua << TREE
+require'nvim-tree'.setup {
+  auto_close = true
+}
+TREE
 
 syntax on
-colorscheme monokai
+colorscheme catppuccin
 filetype plugin indent on
 
 if has('gui_running')
@@ -40,6 +47,7 @@ if has('mouse_sgr')
   set ttymouse=sgr
 endif
 
+set title
 set noshowmode
 set showcmd
 set timeoutlen=1200
@@ -65,7 +73,9 @@ nnoremap <Leader>w :w<CR>
 vnoremap // y/<C-R>"<CR>"
 let mapleader = " "
 
-nnoremap <Leader>f :NERDTree<CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
 
 """"""""""""""""""""""
 " Rails/RSpec
@@ -98,4 +108,4 @@ fun! <SID>StripTrailingWhitespaces()
   %s/\s\+$//e
   call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,javascript,typescript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
