@@ -1,6 +1,6 @@
 [user]
-	name = Matthew Cowie
-	email = matthew@cowie.me
+	name = Madeline Cowie
+	email = madeline@cowie.me
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
@@ -40,3 +40,5 @@
   difftool = true
 [credential]
 	helper = libsecret
+[init]
+	defaultBranch = main
