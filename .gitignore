@@ -4,4 +4,7 @@ fish/.config/fish/functions
 fish/.config/fish/fish_variables
 fish/.config/fish/completions
 
-.netrwhist
+
+sublime-text/.config/sublime-text/Installed Packages
+sublime-text/.config/sublime-text/Packages
+sublime-text/.config/sublime-text/Local
