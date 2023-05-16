@@ -5,6 +5,7 @@ source ~/.profile
 # Fish Vars ###########################################################
 
 set -g theme_nerd_fonts yes
+set fish_greeting "" # Remove welcome message
 
 # Colors:
 # set fish_color_normal F8F8F2 # the default color
