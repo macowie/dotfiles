@@ -19,7 +19,7 @@ lvim.builtin.terminal.open_mapping = "<c-t>"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
+-- we use protected-mode (pcall) just in case the plugin wasn"t loaded yet.
 -- local _, actions = pcall(require, "telescope.actions")
 -- lvim.builtin.telescope.defaults.mappings = {
 --   -- for input mode
@@ -58,7 +58,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
--- if you don't want all the parsers change this to a table of the ones you want
+-- if you don"t want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
@@ -89,9 +89,9 @@ lvim.builtin.telescope.extensions = {
 
   project = {
     base_dirs = {
-      '~/Code',
-      '~/Projects',
-      '~/Tidelift',
+      "~/Code",
+      "~/Projects",
+      "~/Tidelift",
     }
   },
 }
@@ -143,7 +143,7 @@ linters.setup {
   --   -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
   --   command = "shellcheck",
   --   ---@usage arguments to pass to the formatter
-  --   -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --   -- these cannot contain whitespaces, options such as `--line-width 80` become either `{"--line-width", "80"}` or `{"--line-width=80"}`
   --   extra_args = { "--severity", "warning" },
   -- },
   -- {
@@ -155,10 +155,14 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
+  -- Styyyyle
   {
     "catppuccin/nvim",
     name = "catppuccin"
   },
+  { "nvim-tree/nvim-web-devicons" },
+
+  -- Lang
   {
     "tpope/vim-rails",
     cmd = {
@@ -181,20 +185,50 @@ lvim.plugins = {
     }
   },
   {
-    "vim-test/vim-test",
-    cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" }
-  },
-  {
     "tpope/vim-bundler",
     cmd = { "Bundler", "Bopen", "Bsplit", "Btabedit" }
   },
   {
     "edluffy/hologram.nvim",
     config = function()
-      require('hologram').setup {
+      require("hologram").setup {
         auto_display = true -- WIP automatic markdown image display, may be prone to breaking
       }
     end
+  },
+  {
+    "romgrk/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup {
+        enable = true,   -- Enable this plugin (Can be enabled/disabled later via commands)
+        throttle = true, -- Throttles plugin updates (may improve performance)
+        max_lines = 0,   -- How many lines the window should span. Values <= 0 mean no limit.
+        patterns = {
+          -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+          -- For all filetypes
+          -- Note that setting an entry here replaces all other patterns for this entry.
+          -- By setting the "default" entry below, you can control which nodes you want to
+          -- appear in the context window.
+          default = {
+            "class",
+            "function",
+            "method",
+          },
+        },
+      }
+    end
+  },
+
+  -- Editor"s little helpers
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  {
+    "folke/lsp-colors.nvim",
+    event = "BufRead",
   },
   {
     "folke/todo-comments.nvim",
@@ -203,89 +237,65 @@ lvim.plugins = {
       require("todo-comments").setup()
     end,
   },
-  {
-    "renerocksai/telekasten.nvim",
-    config = function()
-      require('telekasten').setup({
-        home = vim.fn.expand("~/Nextcloud/Notes"), -- Put the name of your notes directory here
-      })
-    end
-  },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup()
-    end,
-  },
-  {
-    "ruifm/gitlinker.nvim",
-    event = "BufRead",
-    config = function()
-      require("gitlinker").setup {
-        opts = {
-          -- remote = 'github', -- force the use of a specific remote
-          -- adds current line nr in the url for normal mode
-          add_current_line_on_normal_mode = true,
-          -- callback for what to do with the url
-          action_callback = require("gitlinker.actions").open_in_browser,
-          -- print the url after performing the action
-          print_url = false,
-          -- mapping to call url generation
-          mappings = "<leader>gy",
-        },
-      }
-    end,
-    dependencies = "nvim-lua/plenary.nvim",
-  },
+
+  -- Nav
   {
     "toppair/peek.nvim",
     name = "peek",
     build = "deno task --quiet build:fast",
     config = function()
-      require('peek').setup({
+      require("peek").setup({
         auto_load = true,        -- whether to automatically load preview when
         -- entering another markdown buffer
         close_on_bdelete = true, -- close preview window on buffer delete
 
         syntax = true,           -- enable syntax highlighting, affects performance
 
-        theme = 'dark',          -- 'dark' or 'light'
+        theme = "dark",          -- "dark" or "light"
 
         update_on_change = true,
 
-        app = 'webview', -- 'webview', 'browser', string or a table of strings
+        app = "webview", -- "webview", "browser", string or a table of strings
         -- explained below
 
-        filetype = { 'markdown' }, -- list of filetypes to recognize as markdown
+        filetype = { "markdown" }, -- list of filetypes to recognize as markdown
 
         -- relevant if update_on_change is true
         throttle_at = 200000,   -- start throttling when file exceeds this
         -- amount of bytes in size
-        throttle_time = 'auto', -- minimum amount of time in milliseconds
+        throttle_time = "auto", -- minimum amount of time in milliseconds
         -- that has to pass before starting new render
       })
     end
   },
   {
-    "pwntester/octo.nvim",
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'nvim-tree/nvim-web-devicons',
-    },
+    "ggandor/leap.nvim",
+    name = "leap",
     config = function()
-      require("octo").setup()
+      require("leap").add_default_mappings()
     end,
   },
   {
-    "mattn/vim-gist",
-    event = "BufRead",
-    dependencies = "mattn/webapi-vim",
+    "karb94/neoscroll.nvim",
+    event = "WinScrolled",
+    config = function()
+      require("neoscroll").setup({
+        -- All these keys will be mapped to their corresponding default scrolling animation
+        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>",
+          "<C-y>", "<C-e>", "zt", "zz", "zb" },
+        hide_cursor = false,         -- Hide cursor while scrolling
+        stop_eof = false,            -- Stop at <EOF> when scrolling downwards
+        use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+        respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+        easing_function = "quintic", -- Default easing function
+        pre_hook = nil,              -- Function to run before the scrolling animation starts
+        post_hook = nil,             -- Function to run after the scrolling animation ends
+      })
+    end
   },
+
+  -- Gitty up
   {
     "tpope/vim-fugitive",
     cmd = {
@@ -306,118 +316,90 @@ lvim.plugins = {
     ft = { "fugitive" }
   },
   {
-    "romgrk/nvim-treesitter-context",
+    "ruifm/gitlinker.nvim",
+    event = "BufRead",
     config = function()
-      require("treesitter-context").setup {
-        enable = true,   -- Enable this plugin (Can be enabled/disabled later via commands)
-        throttle = true, -- Throttles plugin updates (may improve performance)
-        max_lines = 0,   -- How many lines the window should span. Values <= 0 mean no limit.
-        patterns = {
-          -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-          -- For all filetypes
-          -- Note that setting an entry here replaces all other patterns for this entry.
-          -- By setting the 'default' entry below, you can control which nodes you want to
-          -- appear in the context window.
-          default = {
-            'class',
-            'function',
-            'method',
-          },
+      require("gitlinker").setup {
+        opts = {
+          -- remote = "github", -- force the use of a specific remote
+          -- adds current line nr in the url for normal mode
+          add_current_line_on_normal_mode = true,
+          -- callback for what to do with the url
+          action_callback = require("gitlinker.actions").open_in_browser,
+          -- print the url after performing the action
+          print_url = false,
+          -- mapping to call url generation
+          mappings = "<leader>gy",
         },
       }
-    end
-  },
-  {
-    "folke/lsp-colors.nvim",
-    event = "BufRead",
-  },
-  {
-    "ggandor/leap.nvim",
-    name = "leap",
-    config = function()
-      require("leap").add_default_mappings()
     end,
+    dependencies = "nvim-lua/plenary.nvim",
   },
   {
-    "karb94/neoscroll.nvim",
-    event = "WinScrolled",
+    "mattn/vim-gist",
+    event = "BufRead",
+    dependencies = "mattn/webapi-vim",
+  },
+
+
+  -- Get a life
+  {
+    "renerocksai/telekasten.nvim",
     config = function()
-      require('neoscroll').setup({
-        -- All these keys will be mapped to their corresponding default scrolling animation
-        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-          '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-        hide_cursor = false,         -- Hide cursor while scrolling
-        stop_eof = false,            -- Stop at <EOF> when scrolling downwards
-        use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-        respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-        easing_function = "quintic", -- Default easing function
-        pre_hook = nil,              -- Function to run before the scrolling animation starts
-        post_hook = nil,             -- Function to run after the scrolling animation ends
+      require("telekasten").setup({
+        home = vim.fn.expand("~/Nextcloud/Notes"), -- Put the name of your notes directory here
       })
     end
   },
   {
-    "nvim-telescope/telescope-media-files.nvim",
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
   },
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("octo").setup()
+    end,
+  },
+
+  -- Telescope Time
+  { "nvim-telescope/telescope-media-files.nvim" },
   {
     "nvim-telescope/telescope-project.nvim",
     event = "BufWinEnter",
   },
+  { "tsakirist/telescope-lazy.nvim" },
+  { "LinArcX/telescope-changes.nvim" },
+  { "olacin/telescope-gitmoji.nvim" },
+  { "nvim-telescope/telescope-github.nvim" },
+  { "chip/telescope-code-fence.nvim" },
+  { "nat-418/telescope-color-names.nvim" },
   {
-    "tsakirist/telescope-lazy.nvim",
-  },
-  {
-    "LinArcX/telescope-changes.nvim",
-  },
-
-  {
-    'olacin/telescope-gitmoji.nvim'
-  },
-  {
-    'nvim-telescope/telescope-github.nvim'
-  },
-  {
-    'chip/telescope-code-fence.nvim'
-  },
-  {
-    'nat-418/telescope-color-names.nvim'
-  },
-  {
-    'otavioschwanck/telescope-alternate',
+    "otavioschwanck/telescope-alternate",
     config = function()
-      require('telescope-alternate').setup({
-        presets = { 'rails', 'rspec', 'nestjs' }, -- Telescope pre-defined mapping presets
-        open_only_one_with = 'vertical_split',    -- when just have only possible file, open it with.  Can also be horizontal_split and vertical_split
+      require("telescope-alternate").setup({
+        presets = { "rails", "rspec", "nestjs" }, -- Telescope pre-defined mapping presets
+        open_only_one_with = "vertical_split",    -- when just have only possible file, open it with.  Can also be horizontal_split and vertical_split
       })
     end
   },
-  {
-    'crispgm/telescope-heading.nvim'
-  },
+  { "crispgm/telescope-heading.nvim" },
   {
     "sudormrfbin/cheatsheet.nvim",
     dependencies = {
-      'nvim-telescope/telescope.nvim',
-      'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim',
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
     }
   },
-  {
-    'crispgm/telescope-heading.nvim'
-  },
-  {
-    "nvim-telescope/telescope-symbols.nvim"
-  },
-  {
-    "PhilippFeO/telescope-filelinks.nvim"
-  },
-  {
-    "sindrets/diffview.nvim"
-  },
-  {
-    "nvim-tree/nvim-web-devicons"
-  },
+  { "crispgm/telescope-heading.nvim" },
+  { "nvim-telescope/telescope-symbols.nvim" },
+  { "PhilippFeO/telescope-filelinks.nvim" },
   {
     "paopaol/telescope-git-diffs.nvim",
     dependencies = {
@@ -425,9 +407,7 @@ lvim.plugins = {
       "sindrets/diffview.nvim",
     }
   },
-  {
-    "xiyaowong/telescope-emoji.nvim"
-  },
+  { "xiyaowong/telescope-emoji.nvim" },
 }
 
 lvim.builtin.telescope.on_config_done = function(telescope)
