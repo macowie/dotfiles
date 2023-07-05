@@ -30,6 +30,7 @@
   precommit = diff --cached --diff-algorithm=minimal -w
   showtool = "!f() { git difftool $1^ $1; }; f"
   added = difftool --cached
+  back = checkout @{-1}
 [diff]
   tool = icdiff
 [difftool]
