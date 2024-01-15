@@ -1,8 +1,7 @@
 # Identity
 #
-[user]
-	name = Madeline Cowie
-	email = madeline@cowie.me
+[include]
+    path = ~/.gitconfig-identity
 
 # Core settings
 #
