@@ -1,5 +1,28 @@
 return {
-  { "tpope/vim-rails" },
+  {
+    "tpope/vim-rails",
+    config = function()
+      vim.g.rails_projections = {
+        ["app/controllers/*_controller.rb"] = {
+          ["test"] = {
+            "spec/requests/{}_spec.rb",
+            "spec/controllers/{}_controller_spec.rb",
+            "test/controllers/{}_controller_test.rb",
+          },
+          ["alternate"] = {
+            "spec/requests/{}_spec.rb",
+            "spec/controllers/{}_controller_spec.rb",
+            "test/controllers/{}_controller_test.rb",
+          },
+        },
+        ["spec/requests/*_spec.rb"] = {
+          ["command"] = "request",
+          ["alternate"] = "app/controllers/{}_controller.rb",
+        },
+      }
+    end,
+  },
+
   { "tpope/vim-bundler" },
   { "suketa/nvim-dap-ruby" },
   { "olimorris/neotest-rspec" },
@@ -29,6 +52,16 @@ return {
       servers = {
         rubocop = {
           cmd = { "bundle", "exec", "rubocop", "--lsp" },
+          settings = {
+            layoutMode = true,
+            formatting = false,
+          },
+        },
+        solargraph = {
+          settings = {
+            formatting = false,
+            useBundler = true,
+          },
         },
       },
     },

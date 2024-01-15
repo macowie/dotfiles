@@ -1,12 +1,13 @@
-return {
+local temp = {
+
   "mfussenegger/nvim-lint",
   opts = {
     -- Event to trigger linters
     events = { "BufWritePost", "BufReadPost", "InsertLeave" },
     linters_by_ft = {
       fish = { "fish" },
-      ruby = { "rubocop" },
-      erb = { "rubocop,erb_lint" },
+      -- ruby = { "rubocop" },
+      -- erb = { "rubocop,erb_lint" },
       bash = { "shellcheck" },
       sh = { "shellcheck" },
       zsh = { "shellcheck,zsh" },
@@ -28,11 +29,13 @@ return {
       --     return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
       --   end,
       -- },
-      rubocop = {
-        cmd = function()
-          return vim.tbl_flatten({ "bundle", "exec", "rubocop" })
-        end,
-      },
+      -- rubocop = {
+      --   cmd = function()
+      --     return vim.tbl_flatten({ "bundle", "exec", "rubocop" })
+      -- end,
+      -- },
     },
   },
 }
+
+return {}
