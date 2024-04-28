@@ -19,6 +19,15 @@ return {
           ["command"] = "request",
           ["alternate"] = "app/controllers/{}_controller.rb",
         },
+        ["lib/tasks/*.rake"] = {
+          ["test"] = {
+            "spec/tasks/{}_spec.rb",
+          },
+        },
+        ["spec/tasks/*_spec.rb"] = {
+          ["command"] = "task",
+          ["alternate"] = "lib/tasks/{}.rake",
+        },
       }
     end,
   },
