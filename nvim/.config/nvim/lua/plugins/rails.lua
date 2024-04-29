@@ -24,6 +24,7 @@ return {
   },
 
   { "tpope/vim-bundler" },
+  { "tpope/vim-commentary" },
   { "suketa/nvim-dap-ruby" },
   { "olimorris/neotest-rspec" },
   {
