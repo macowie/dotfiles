@@ -53,27 +53,4 @@ return {
       },
     },
   },
-
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        rubocop = {
-          cmd = { "bundle", "exec", "rubocop", "--lsp" },
-          settings = {
-            layoutMode = true,
-            formatting = false,
-          },
-        },
-        solargraph = {
-          settings = {
-            formatting = false,
-            useBundler = true,
-          },
-        },
-      },
-    },
-  },
 }
