@@ -78,7 +78,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github asdf 1password zoxide rails macos themes tmux zsh-syntax-highlighting ruby aws gcloud ripgrep postgres)
+plugins=(git github 1password zoxide rails macos themes tmux zsh-syntax-highlighting ruby aws gcloud ripgrep postgres)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,3 +114,5 @@ unalias tl
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"

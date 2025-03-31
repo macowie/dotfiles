@@ -12,5 +12,5 @@ hash -d -- fed=/Users/madeline/Tidelift/frontend
 hash -d -- dci=/Users/madeline/Tidelift/dependencyci
 hash -d -- lio=/Users/madeline/Tidelift/libraries.io
 
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES 
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export CONTAINERS_MACHINE_PROVIDER=applehv
